@@ -1,7 +1,30 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import './Install.css'
 
 const Install = () => {
+  const [copiedCommand, setCopiedCommand] = useState('')
+
+  const copyToClipboard = (text, id) => {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopiedCommand(id)
+      setTimeout(() => setCopiedCommand(''), 2000)
+    })
+  }
+
+  const CodeBlock = ({ code, id }) => (
+    <div className="code-block-wrapper">
+      <pre><code>{code}</code></pre>
+      <button 
+        className={`copy-btn ${copiedCommand === id ? 'copied' : ''}`}
+        onClick={() => copyToClipboard(code, id)}
+        aria-label="Copiar comando"
+      >
+        {copiedCommand === id ? '✓' : '📋'}
+      </button>
+    </div>
+  )
+
   return (
     <div className="install">
       <div className="container">
@@ -26,17 +49,17 @@ const Install = () => {
             
             <div className="install-step">
               <h4>1. Verifica que tienes Python instalado</h4>
-              <pre><code>python --version</code></pre>
+              <CodeBlock code="python --version" id="python-version" />
             </div>
             
             <div className="install-step">
               <h4>2. Instala ESRM con pip</h4>
-              <pre><code>pip install effect-srm</code></pre>
+              <CodeBlock code="pip install effect-srm" id="pip-install" />
             </div>
             
             <div className="install-step">
               <h4>3. Ejecuta ESRM</h4>
-              <pre><code>esrm</code></pre>
+              <CodeBlock code="esrm" id="esrm-run" />
               <p className="step-note">También puedes usar: <code>srm</code> o <code>effect-screen-recorder-master</code></p>
             </div>
 
@@ -59,7 +82,7 @@ const Install = () => {
             
             <div className="install-step">
               <h4>1. Descarga el instalador</h4>
-              <p>Descarga la última versión desde GitHub Releases o SourceForge.</p>
+              <p>Descarga la última versión desde SourceForge.</p>
             </div>
             
             <div className="install-step">
@@ -72,24 +95,14 @@ const Install = () => {
               <p>Busca ESRM en el menú de inicio o ejecuta desde el escritorio.</p>
             </div>
 
-            <div className="method-buttons">
-              <a 
-                href="https://github.com/tutosrive/E-SRM/releases" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="btn btn-secondary"
-              >
-                GitHub Releases
-              </a>
-              <a 
-                href="https://sourceforge.net/projects/e-srm/files/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="btn btn-download"
-              >
-                SourceForge
-              </a>
-            </div>
+            <a 
+              href="https://sourceforge.net/projects/e-srm/files/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="btn btn-download"
+            >
+              SourceForge
+            </a>
           </div>
 
           {/* Local Development */}
@@ -101,17 +114,17 @@ const Install = () => {
             
             <div className="install-step">
               <h4>1. Clona el repositorio</h4>
-              <pre><code>git clone https://github.com/tutosrive/E-SRM.git</code></pre>
+              <CodeBlock code="git clone https://github.com/tutosrive/E-SRM.git" id="git-clone" />
             </div>
             
             <div className="install-step">
               <h4>2. Instala dependencias</h4>
-              <pre><code>pip install -r requirements.txt</code></pre>
+              <CodeBlock code="pip install -r requirements.txt" id="pip-requirements" />
             </div>
             
             <div className="install-step">
               <h4>3. Ejecuta la aplicación</h4>
-              <pre><code>python code/__main__.py</code></pre>
+              <CodeBlock code="python code/__main__.py" id="python-run" />
             </div>
 
             <a 
