@@ -107,6 +107,9 @@
 
 .attribution-code {
   margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
 .attribution-code code {
@@ -206,6 +209,10 @@
 
   .permissions-grid {
     grid-template-columns: 1fr;
+  }
+
+  .condition-card {
+    padding: 20px;
   }
 
   .license-content {
