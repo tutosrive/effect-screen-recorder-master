@@ -19,10 +19,14 @@ const Install = () => {
   const [copiedCommand, setCopiedCommand] = useState('')
 
   const copyToClipboard = (text, id) => {
-    navigator.clipboard.writeText(text).then(() => {
-      setCopiedCommand(id)
-      setTimeout(() => setCopiedCommand(''), 2000)
-    })
+    navigator.clipboard.writeText(text)
+      .then(() => {
+        setCopiedCommand(id)
+        setTimeout(() => setCopiedCommand(''), 2000)
+      })
+      .catch((err) => {
+        console.error('Failed to copy:', err)
+      })
   }
 
   return (
