@@ -2,6 +2,19 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import './Install.css'
 
+const CodeBlock = ({ code, id, onCopy, copiedCommand }) => (
+  <div className="code-block-wrapper">
+    <pre><code>{code}</code></pre>
+    <button 
+      className={`copy-btn ${copiedCommand === id ? 'copied' : ''}`}
+      onClick={() => onCopy(code, id)}
+      aria-label="Copiar comando"
+    >
+      {copiedCommand === id ? '✓' : '📋'}
+    </button>
+  </div>
+)
+
 const Install = () => {
   const [copiedCommand, setCopiedCommand] = useState('')
 
@@ -11,19 +24,6 @@ const Install = () => {
       setTimeout(() => setCopiedCommand(''), 2000)
     })
   }
-
-  const CodeBlock = ({ code, id }) => (
-    <div className="code-block-wrapper">
-      <pre><code>{code}</code></pre>
-      <button 
-        className={`copy-btn ${copiedCommand === id ? 'copied' : ''}`}
-        onClick={() => copyToClipboard(code, id)}
-        aria-label="Copiar comando"
-      >
-        {copiedCommand === id ? '✓' : '📋'}
-      </button>
-    </div>
-  )
 
   return (
     <div className="install">
@@ -49,17 +49,17 @@ const Install = () => {
             
             <div className="install-step">
               <h4>1. Verifica que tienes Python instalado</h4>
-              <CodeBlock code="python --version" id="python-version" />
+              <CodeBlock code="python --version" id="python-version" onCopy={copyToClipboard} copiedCommand={copiedCommand} />
             </div>
             
             <div className="install-step">
               <h4>2. Instala ESRM con pip</h4>
-              <CodeBlock code="pip install effect-srm" id="pip-install" />
+              <CodeBlock code="pip install effect-srm" id="pip-install" onCopy={copyToClipboard} copiedCommand={copiedCommand} />
             </div>
             
             <div className="install-step">
               <h4>3. Ejecuta ESRM</h4>
-              <CodeBlock code="esrm" id="esrm-run" />
+              <CodeBlock code="esrm" id="esrm-run" onCopy={copyToClipboard} copiedCommand={copiedCommand} />
               <p className="step-note">También puedes usar: <code>srm</code> o <code>effect-screen-recorder-master</code></p>
             </div>
 
@@ -114,17 +114,17 @@ const Install = () => {
             
             <div className="install-step">
               <h4>1. Clona el repositorio</h4>
-              <CodeBlock code="git clone https://github.com/tutosrive/E-SRM.git" id="git-clone" />
+              <CodeBlock code="git clone https://github.com/tutosrive/E-SRM.git" id="git-clone" onCopy={copyToClipboard} copiedCommand={copiedCommand} />
             </div>
             
             <div className="install-step">
               <h4>2. Instala dependencias</h4>
-              <CodeBlock code="pip install -r requirements.txt" id="pip-requirements" />
+              <CodeBlock code="pip install -r requirements.txt" id="pip-requirements" onCopy={copyToClipboard} copiedCommand={copiedCommand} />
             </div>
             
             <div className="install-step">
               <h4>3. Ejecuta la aplicación</h4>
-              <CodeBlock code="python code/__main__.py" id="python-run" />
+              <CodeBlock code="python code/__main__.py" id="python-run" onCopy={copyToClipboard} copiedCommand={copiedCommand} />
             </div>
 
             <a 
