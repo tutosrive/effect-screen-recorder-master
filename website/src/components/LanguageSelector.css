@@ -1,0 +1,159 @@
+.language-selector {
+  position: relative;
+  z-index: 1000;
+}
+
+.language-selector-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.language-selector-trigger:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.language-flag {
+  width: 20px;
+  height: 15px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.language-code {
+  min-width: 24px;
+  text-align: center;
+}
+
+.language-chevron {
+  transition: transform 0.2s ease;
+  opacity: 0.7;
+}
+
+.language-chevron.open {
+  transform: rotate(180deg);
+}
+
+.language-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 200px;
+  background: rgba(20, 20, 25, 0.98);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  padding: 8px;
+  list-style: none;
+  margin: 0;
+  animation: dropdownFadeIn 0.2s ease;
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 12px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--text-secondary);
+  text-align: left;
+  font-size: 0.875rem;
+}
+
+.language-option:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+
+.language-option.active {
+  background: rgba(6, 182, 212, 0.15);
+  color: var(--primary-cyan);
+}
+
+.language-option.active:hover {
+  background: rgba(6, 182, 212, 0.2);
+}
+
+.language-option .language-flag {
+  width: 24px;
+  height: 18px;
+}
+
+.language-name {
+  flex: 1;
+}
+
+.language-check {
+  opacity: 0.8;
+  color: var(--primary-cyan);
+}
+
+/* RTL Support */
+[dir="rtl"] .language-dropdown {
+  right: auto;
+  left: 0;
+}
+
+[dir="rtl"] .language-option {
+  text-align: right;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .language-selector {
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .language-selector-trigger {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .language-dropdown {
+    right: 50%;
+    transform: translateX(50%);
+    width: calc(100% - 40px);
+    max-width: 280px;
+  }
+
+  @keyframes dropdownFadeIn {
+    from {
+      opacity: 0;
+      transform: translateX(50%) translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(50%) translateY(0);
+    }
+  }
+}

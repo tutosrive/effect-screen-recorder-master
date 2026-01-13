@@ -1,18 +1,21 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { useLanguage } from '../i18n/useLanguage'
+import LanguageSelector from './LanguageSelector'
 import './Navbar.css'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const location = useLocation()
+  const { t } = useLanguage()
 
   const navLinks = [
-    { path: '/', label: 'Inicio' },
-    { path: '/about', label: 'Acerca' },
-    { path: '/docs', label: 'Docs' },
-    { path: '/install', label: 'Instalación' },
-    { path: '/download', label: 'Descargar' },
-    { path: '/license', label: 'Licencia' },
+    { path: '/', label: t.nav.home },
+    { path: '/about', label: t.nav.about },
+    { path: '/docs', label: t.nav.docs },
+    { path: '/install', label: t.nav.install },
+    { path: '/download', label: t.nav.download },
+    { path: '/license', label: t.nav.license },
   ]
 
   return (
@@ -57,6 +60,7 @@ const Navbar = () => {
             </svg>
             GitHub
           </a>
+          <LanguageSelector />
         </div>
       </div>
     </nav>

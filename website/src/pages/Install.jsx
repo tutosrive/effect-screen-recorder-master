@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import { useLanguage } from '../i18n/useLanguage'
 import './Install.css'
 
-const CodeBlock = ({ code, id, onCopy, copiedCommand }) => (
+const CodeBlock = ({ code, id, onCopy, copiedCommand, copyLabel }) => (
   <div className="code-block-wrapper">
     <pre><code>{code}</code></pre>
     <button 
       className={`copy-btn ${copiedCommand === id ? 'copied' : ''}`}
       onClick={() => onCopy(code, id)}
-      aria-label="Copiar comando"
+      aria-label={copyLabel}
     >
       {copiedCommand === id ? '✓' : '📋'}
     </button>
@@ -17,6 +18,7 @@ const CodeBlock = ({ code, id, onCopy, copiedCommand }) => (
 
 const Install = () => {
   const [copiedCommand, setCopiedCommand] = useState('')
+  const { t } = useLanguage()
 
   const copyToClipboard = (text, id) => {
     navigator.clipboard.writeText(text)
@@ -35,10 +37,10 @@ const Install = () => {
         {/* Header */}
         <section className="install-header">
           <h1 className="page-title">
-            <span className="gradient-text">Instalación</span>
+            <span className="gradient-text">{t.install.title}</span>
           </h1>
           <p className="page-subtitle">
-            Múltiples formas de instalar ESRM
+            {t.install.subtitle}
           </p>
         </section>
 
@@ -46,25 +48,25 @@ const Install = () => {
         <section className="install-methods section">
           {/* PyPI Method */}
           <div className="method-card glass-strong">
-            <div className="method-badge pypi">Recomendado</div>
+            <div className="method-badge pypi">{t.install.recommended}</div>
             <div className="method-icon">📦</div>
-            <h2>Instalar con PyPI</h2>
-            <p>La forma más fácil de instalar ESRM. Requiere Python 3.11.6+</p>
+            <h2>{t.install.installWithPyPI}</h2>
+            <p>{t.install.pypiDesc}</p>
             
             <div className="install-step">
-              <h4>1. Verifica que tienes Python instalado</h4>
-              <CodeBlock code="python --version" id="python-version" onCopy={copyToClipboard} copiedCommand={copiedCommand} />
+              <h4>1. {t.install.verifyPython}</h4>
+              <CodeBlock code="python --version" id="python-version" onCopy={copyToClipboard} copiedCommand={copiedCommand} copyLabel={t.install.copyCommand} />
             </div>
             
             <div className="install-step">
-              <h4>2. Instala ESRM con pip</h4>
-              <CodeBlock code="pip install effect-srm" id="pip-install" onCopy={copyToClipboard} copiedCommand={copiedCommand} />
+              <h4>2. {t.install.installWithPip}</h4>
+              <CodeBlock code="pip install effect-srm" id="pip-install" onCopy={copyToClipboard} copiedCommand={copiedCommand} copyLabel={t.install.copyCommand} />
             </div>
             
             <div className="install-step">
-              <h4>3. Ejecuta ESRM</h4>
-              <CodeBlock code="esrm" id="esrm-run" onCopy={copyToClipboard} copiedCommand={copiedCommand} />
-              <p className="step-note">También puedes usar: <code>srm</code> o <code>effect-screen-recorder-master</code></p>
+              <h4>3. {t.install.runESRM}</h4>
+              <CodeBlock code="esrm" id="esrm-run" onCopy={copyToClipboard} copiedCommand={copiedCommand} copyLabel={t.install.copyCommand} />
+              <p className="step-note">{t.install.alsoUse} <code>srm</code> o <code>effect-screen-recorder-master</code></p>
             </div>
 
             <a 
@@ -73,30 +75,30 @@ const Install = () => {
               rel="noopener noreferrer"
               className="btn btn-primary"
             >
-              Ver en PyPI
+              {t.install.viewOnPyPI}
             </a>
           </div>
 
           {/* Executable Method */}
           <div className="method-card glass-strong">
-            <div className="method-badge exe">Sin Python</div>
+            <div className="method-badge exe">{t.install.noPython}</div>
             <div className="method-icon">💻</div>
-            <h2>Instalador .EXE</h2>
-            <p>Descarga e instala sin necesidad de tener Python. Ideal para usuarios que prefieren instaladores tradicionales.</p>
+            <h2>{t.install.exeInstaller}</h2>
+            <p>{t.install.exeDesc}</p>
             
             <div className="install-step">
-              <h4>1. Descarga el instalador</h4>
-              <p>Descarga la última versión desde SourceForge.</p>
+              <h4>1. {t.install.downloadInstaller}</h4>
+              <p>{t.install.downloadInstallerDesc}</p>
             </div>
             
             <div className="install-step">
-              <h4>2. Ejecuta el instalador</h4>
-              <p>Sigue las instrucciones del asistente de instalación.</p>
+              <h4>2. {t.install.runInstaller}</h4>
+              <p>{t.install.runInstallerDesc}</p>
             </div>
             
             <div className="install-step">
-              <h4>3. Abre ESRM</h4>
-              <p>Busca ESRM en el menú de inicio o ejecuta desde el escritorio.</p>
+              <h4>3. {t.install.openESRM}</h4>
+              <p>{t.install.openESRMDesc}</p>
             </div>
 
             <a 
@@ -111,24 +113,24 @@ const Install = () => {
 
           {/* Local Development */}
           <div className="method-card glass-strong">
-            <div className="method-badge dev">Desarrollo</div>
+            <div className="method-badge dev">{t.install.development}</div>
             <div className="method-icon">🛠️</div>
-            <h2>Instalación Local</h2>
-            <p>Clona el repositorio para contribuir o modificar el código.</p>
+            <h2>{t.install.localInstall}</h2>
+            <p>{t.install.localDesc}</p>
             
             <div className="install-step">
-              <h4>1. Clona el repositorio</h4>
-              <CodeBlock code="git clone https://github.com/tutosrive/E-SRM.git" id="git-clone" onCopy={copyToClipboard} copiedCommand={copiedCommand} />
+              <h4>1. {t.install.cloneRepo}</h4>
+              <CodeBlock code="git clone https://github.com/tutosrive/E-SRM.git" id="git-clone" onCopy={copyToClipboard} copiedCommand={copiedCommand} copyLabel={t.install.copyCommand} />
             </div>
             
             <div className="install-step">
-              <h4>2. Instala dependencias</h4>
-              <CodeBlock code="pip install -r requirements.txt" id="pip-requirements" onCopy={copyToClipboard} copiedCommand={copiedCommand} />
+              <h4>2. {t.install.installDeps}</h4>
+              <CodeBlock code="pip install -r requirements.txt" id="pip-requirements" onCopy={copyToClipboard} copiedCommand={copiedCommand} copyLabel={t.install.copyCommand} />
             </div>
             
             <div className="install-step">
-              <h4>3. Ejecuta la aplicación</h4>
-              <CodeBlock code="python code/__main__.py" id="python-run" onCopy={copyToClipboard} copiedCommand={copiedCommand} />
+              <h4>3. {t.install.runApp}</h4>
+              <CodeBlock code="python code/__main__.py" id="python-run" onCopy={copyToClipboard} copiedCommand={copiedCommand} copyLabel={t.install.copyCommand} />
             </div>
 
             <a 
@@ -137,7 +139,7 @@ const Install = () => {
               rel="noopener noreferrer"
               className="btn btn-secondary"
             >
-              Ver Repositorio
+              {t.install.viewRepo}
             </a>
           </div>
         </section>
@@ -147,27 +149,24 @@ const Install = () => {
           <div className="ffmpeg-card glass-strong">
             <div className="ffmpeg-icon">🎬</div>
             <div className="ffmpeg-content">
-              <h2>⚠️ Requisito Importante: FFmpeg</h2>
-              <p>
-                ESRM requiere <strong>FFmpeg</strong> instalado y configurado en el PATH del sistema 
-                para funcionar correctamente. FFmpeg es el motor que permite la grabación de video.
-              </p>
+              <h2>⚠️ {t.install.importantRequirement}</h2>
+              <p dangerouslySetInnerHTML={{ __html: t.install.ffmpegDesc }} />
               <div className="ffmpeg-steps">
                 <div className="ffmpeg-step">
                   <span>1</span>
-                  <p>Descarga FFmpeg desde el sitio oficial</p>
+                  <p>{t.install.ffmpegStep1}</p>
                 </div>
                 <div className="ffmpeg-step">
                   <span>2</span>
-                  <p>Extrae el archivo en una carpeta (ej: C:\ffmpeg)</p>
+                  <p>{t.install.ffmpegStep2}</p>
                 </div>
                 <div className="ffmpeg-step">
                   <span>3</span>
-                  <p>Añade la carpeta bin al PATH del sistema</p>
+                  <p>{t.install.ffmpegStep3}</p>
                 </div>
                 <div className="ffmpeg-step">
                   <span>4</span>
-                  <p>Verifica con: <code>ffmpeg -version</code></p>
+                  <p>{t.install.ffmpegStep4} <code>ffmpeg -version</code></p>
                 </div>
               </div>
               <a 
@@ -176,7 +175,7 @@ const Install = () => {
                 rel="noopener noreferrer"
                 className="btn btn-primary"
               >
-                Descargar FFmpeg
+                {t.install.downloadFFmpeg}
               </a>
             </div>
           </div>
@@ -184,7 +183,7 @@ const Install = () => {
 
         {/* Video Tutorial */}
         <section className="tutorial-section section">
-          <h2 className="section-title">📹 Video Tutorial</h2>
+          <h2 className="section-title">📹 {t.install.videoTutorial}</h2>
           <div className="video-container glass">
             <iframe 
               width="100%" 
@@ -201,14 +200,14 @@ const Install = () => {
         {/* Need Help */}
         <section className="help-section section">
           <div className="help-card glass">
-            <h3>¿Necesitas ayuda?</h3>
-            <p>Revisa la documentación o contacta con soporte.</p>
+            <h3>{t.install.needHelp}</h3>
+            <p>{t.install.needHelpDesc}</p>
             <div className="help-buttons">
               <Link to="/docs" className="btn btn-secondary">
-                Ver Documentación
+                {t.install.viewDocs}
               </Link>
               <a href="mailto:srmtrg.ser@gmail.com" className="btn btn-primary">
-                Contactar Soporte
+                {t.install.contactSupport}
               </a>
             </div>
           </div>
