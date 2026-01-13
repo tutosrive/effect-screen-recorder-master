@@ -69,7 +69,7 @@ const License = () => {
                 El aviso de copyright y la licencia deben incluirse en todas las copias 
                 o partes sustanciales del software.
               </p>
-              <pre className="attribution-code"><code>{`"Effect Screen Recorder Master (ESRM) v0.1.0 © 2025 Tutos Rive - Licencia MIT"`}</code></pre>
+              <pre className="attribution-code"><code>{`"Effect Screen Recorder Master (ESRM) v0.1.0 © 2025 Dev2Forge - Licencia MIT"`}</code></pre>
             </div>
           </div>
         </section>
@@ -80,7 +80,7 @@ const License = () => {
           <div className="license-content glass-strong">
             <pre className="license-pre"><code>{`MIT License
 
-Copyright (c) 2025 Tutos Rive
+Copyright (c) 2025 Dev2Forge
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
