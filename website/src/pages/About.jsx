@@ -1,16 +1,19 @@
+import { useLanguage } from '../i18n/useLanguage'
 import './About.css'
 
 const About = () => {
+  const { t } = useLanguage()
+
   return (
     <div className="about">
       <div className="container">
         {/* Header */}
         <section className="about-header">
           <h1 className="page-title">
-            Acerca de <span className="gradient-text">ESRM</span>
+            {t.about.title} <span className="gradient-text">ESRM</span>
           </h1>
           <p className="page-subtitle">
-            Effect Screen Recorder Master - Grabación profesional con efectos en tiempo real
+            {t.about.subtitle}
           </p>
         </section>
 
@@ -18,17 +21,9 @@ const About = () => {
         <section className="about-content section">
           <div className="about-grid">
             <div className="about-text glass-strong">
-              <h2>¿Qué es ESRM?</h2>
-              <p>
-                ESRM (Effect Screen Recorder Master) es un programa de grabación de pantalla 
-                con <strong>efectos visuales en tiempo real</strong>. Desarrollado 100% con 
-                asistencia de ChatGPT, está escrito en Python con interfaz gráfica en CustomTkinter.
-              </p>
-              <p>
-                Utiliza FFmpeg para realizar las grabaciones, ofreciendo una calidad profesional 
-                con múltiples opciones de configuración para ajustar la salida de video según 
-                tus necesidades.
-              </p>
+              <h2>{t.about.whatIs}</h2>
+              <p dangerouslySetInnerHTML={{ __html: t.about.whatIsDesc1 }} />
+              <p>{t.about.whatIsDesc2}</p>
             </div>
 
             <div className="about-image glass">
@@ -42,51 +37,51 @@ const About = () => {
 
         {/* Features Detail */}
         <section className="features-detail section">
-          <h2 className="section-title">Características Detalladas</h2>
+          <h2 className="section-title">{t.about.detailedFeatures}</h2>
           
           <div className="feature-detail-grid">
             <div className="feature-detail glass">
               <div className="feature-header">
                 <span className="feature-icon">🎚️</span>
-                <h3>Ajustes en Tiempo Real</h3>
+                <h3>{t.about.realTimeAdjustments}</h3>
               </div>
               <ul>
-                <li>Brillo - Ajuste de luminosidad</li>
-                <li>Contraste - Control de diferencia tonal</li>
-                <li>Saturación - Intensidad de colores</li>
-                <li>Gamma - Corrección de tonos medios</li>
-                <li>Tono (Hue) - Rotación de colores</li>
-                <li>Nitidez - Definición de bordes</li>
+                <li>{t.about.brightness}</li>
+                <li>{t.about.contrast}</li>
+                <li>{t.about.saturation}</li>
+                <li>{t.about.gamma}</li>
+                <li>{t.about.hue}</li>
+                <li>{t.about.sharpness}</li>
               </ul>
             </div>
 
             <div className="feature-detail glass">
               <div className="feature-header">
                 <span className="feature-icon">🖥️</span>
-                <h3>Vista Previa Avanzada</h3>
+                <h3>{t.about.advancedPreview}</h3>
               </div>
               <ul>
-                <li>Panel interactivo 1:1</li>
-                <li>Efectos aplicados en tiempo real</li>
-                <li>Soporte para imágenes como preview</li>
-                <li>Soporte para GIF animados</li>
-                <li>Sistema de recorte inteligente (cover)</li>
-                <li>Vista previa antes de grabar</li>
+                <li>{t.about.interactivePanel}</li>
+                <li>{t.about.realTimeEffects}</li>
+                <li>{t.about.imageSupport}</li>
+                <li>{t.about.gifSupport}</li>
+                <li>{t.about.smartCrop}</li>
+                <li>{t.about.previewBefore}</li>
               </ul>
             </div>
 
             <div className="feature-detail glass">
               <div className="feature-header">
                 <span className="feature-icon">⚙️</span>
-                <h3>Configuración Profesional</h3>
+                <h3>{t.about.professionalConfig}</h3>
               </div>
               <ul>
-                <li>Detección automática de micrófono</li>
-                <li>Presets FFmpeg (ultrafast a medium)</li>
-                <li>Guardado automático de ajustes</li>
-                <li>Configuración persistente en JSON</li>
-                <li>Interfaz oscura moderna</li>
-                <li>CustomTkinter UI</li>
+                <li>{t.about.autoMic}</li>
+                <li>{t.about.ffmpegPresets}</li>
+                <li>{t.about.autoSave}</li>
+                <li>{t.about.jsonConfig}</li>
+                <li>{t.about.darkInterface}</li>
+                <li>{t.about.customTkinter}</li>
               </ul>
             </div>
           </div>
@@ -94,27 +89,27 @@ const About = () => {
 
         {/* Tech Stack */}
         <section className="tech-stack section">
-          <h2 className="section-title">Stack Tecnológico</h2>
+          <h2 className="section-title">{t.about.techStack}</h2>
           <div className="tech-grid">
             <div className="tech-card glass">
               <span className="tech-icon">🐍</span>
               <h4>Python 3.11.6+</h4>
-              <p>Lenguaje principal</p>
+              <p>{t.about.mainLanguage}</p>
             </div>
             <div className="tech-card glass">
               <span className="tech-icon">🎬</span>
               <h4>FFmpeg</h4>
-              <p>Motor de grabación</p>
+              <p>{t.about.recordingEngine}</p>
             </div>
             <div className="tech-card glass">
               <span className="tech-icon">🖼️</span>
               <h4>CustomTkinter</h4>
-              <p>Interfaz gráfica</p>
+              <p>{t.about.graphicInterface}</p>
             </div>
             <div className="tech-card glass">
               <span className="tech-icon">📦</span>
               <h4>PyPI</h4>
-              <p>Distribución</p>
+              <p>{t.about.distribution}</p>
             </div>
           </div>
         </section>
@@ -129,7 +124,7 @@ const About = () => {
             />
             <div className="author-info">
               <h3>Tutos Rive</h3>
-              <p>Autor y Desarrollador</p>
+              <p>{t.about.authorDeveloper}</p>
               <div className="author-links">
                 <a href="https://github.com/tutosrive" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
                   GitHub
@@ -138,7 +133,7 @@ const About = () => {
                   YouTube
                 </a>
                 <a href="mailto:srmtrg.ser@gmail.com" className="btn btn-primary">
-                  Contacto
+                  {t.about.contact}
                 </a>
               </div>
             </div>

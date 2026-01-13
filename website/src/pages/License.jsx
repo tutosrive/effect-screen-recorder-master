@@ -1,16 +1,19 @@
+import { useLanguage } from '../i18n/useLanguage'
 import './License.css'
 
 const License = () => {
+  const { t } = useLanguage()
+
   return (
     <div className="license">
       <div className="container">
         {/* Header */}
         <section className="license-header">
           <h1 className="page-title">
-            <span className="gradient-text">Licencia</span>
+            <span className="gradient-text">{t.license.title}</span>
           </h1>
           <p className="page-subtitle">
-            ESRM está bajo licencia MIT
+            {t.license.subtitle}
           </p>
         </section>
 
@@ -21,54 +24,51 @@ const License = () => {
               src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" 
               alt="MIT License"
             />
-            <h2>MIT License</h2>
-            <p>Una de las licencias de código abierto más permisivas</p>
+            <h2>{t.license.mitLicense}</h2>
+            <p>{t.license.mostPermissive}</p>
           </div>
         </section>
 
         {/* What You Can Do */}
         <section className="permissions section">
-          <h2 className="section-title">¿Qué puedes hacer?</h2>
+          <h2 className="section-title">{t.license.whatCanYouDo}</h2>
           <div className="permissions-grid">
             <div className="permission-card glass allowed">
               <span className="permission-icon">✓</span>
-              <h4>Uso Comercial</h4>
-              <p>Puedes usar ESRM en proyectos comerciales.</p>
+              <h4>{t.license.commercialUse}</h4>
+              <p>{t.license.commercialUseDesc}</p>
             </div>
             <div className="permission-card glass allowed">
               <span className="permission-icon">✓</span>
-              <h4>Modificación</h4>
-              <p>Puedes modificar el código fuente.</p>
+              <h4>{t.license.modification}</h4>
+              <p>{t.license.modificationDesc}</p>
             </div>
             <div className="permission-card glass allowed">
               <span className="permission-icon">✓</span>
-              <h4>Distribución</h4>
-              <p>Puedes distribuir copias del software.</p>
+              <h4>{t.license.distribution}</h4>
+              <p>{t.license.distributionDesc}</p>
             </div>
             <div className="permission-card glass allowed">
               <span className="permission-icon">✓</span>
-              <h4>Uso Privado</h4>
-              <p>Puedes usar el software de forma privada.</p>
+              <h4>{t.license.privateUse}</h4>
+              <p>{t.license.privateUseDesc}</p>
             </div>
             <div className="permission-card glass allowed">
               <span className="permission-icon">✓</span>
-              <h4>Sublicencia</h4>
-              <p>Puedes otorgar sublicencias.</p>
+              <h4>{t.license.sublicense}</h4>
+              <p>{t.license.sublicenseDesc}</p>
             </div>
           </div>
         </section>
 
         {/* Conditions */}
         <section className="conditions section">
-          <h2 className="section-title">Condiciones</h2>
+          <h2 className="section-title">{t.license.conditions}</h2>
           <div className="condition-card glass-strong">
             <div className="condition-icon">📋</div>
             <div className="condition-content">
-              <h3>Atribución Requerida</h3>
-              <p>
-                El aviso de copyright y la licencia deben incluirse en todas las copias 
-                o partes sustanciales del software.
-              </p>
+              <h3>{t.license.attributionRequired}</h3>
+              <p>{t.license.attributionDesc}</p>
               <pre className="attribution-code"><code>{`"Effect Screen Recorder Master (ESRM) v0.1.0 © 2025 Dev2Forge - Licencia MIT"`}</code></pre>
             </div>
           </div>
@@ -76,7 +76,7 @@ const License = () => {
 
         {/* License Text */}
         <section className="license-text section">
-          <h2 className="section-title">Texto Completo de la Licencia</h2>
+          <h2 className="section-title">{t.license.fullLicenseText}</h2>
           <div className="license-content glass-strong">
             <pre className="license-pre"><code>{`MIT License
 
@@ -104,17 +104,17 @@ SOFTWARE.`}</code></pre>
 
         {/* Limitations */}
         <section className="limitations section">
-          <h2 className="section-title">Limitaciones</h2>
+          <h2 className="section-title">{t.license.limitations}</h2>
           <div className="limitations-grid">
             <div className="limitation-card glass">
               <span className="limitation-icon">⚠️</span>
-              <h4>Sin Garantía</h4>
-              <p>El software se proporciona "tal cual", sin garantía de ningún tipo.</p>
+              <h4>{t.license.noWarranty}</h4>
+              <p>{t.license.noWarrantyDesc}</p>
             </div>
             <div className="limitation-card glass">
               <span className="limitation-icon">⚠️</span>
-              <h4>Sin Responsabilidad</h4>
-              <p>Los autores no son responsables de daños o reclamaciones.</p>
+              <h4>{t.license.noLiability}</h4>
+              <p>{t.license.noLiabilityDesc}</p>
             </div>
           </div>
         </section>
@@ -122,15 +122,15 @@ SOFTWARE.`}</code></pre>
         {/* CTA */}
         <section className="license-cta section">
           <div className="cta-card glass">
-            <h3>Ver Licencia en GitHub</h3>
-            <p>Consulta el archivo LICENSE original en el repositorio.</p>
+            <h3>{t.license.viewOnGitHub}</h3>
+            <p>{t.license.viewOnGitHubDesc}</p>
             <a 
               href="https://github.com/tutosrive/E-SRM/blob/main/LICENSE" 
               target="_blank" 
               rel="noopener noreferrer"
               className="btn btn-primary"
             >
-              Ver en GitHub
+              {t.license.viewInGitHub}
             </a>
           </div>
         </section>

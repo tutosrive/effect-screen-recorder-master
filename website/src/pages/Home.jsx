@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
+import { useLanguage } from '../i18n/useLanguage'
 import './Home.css'
 
 const Home = () => {
+  const { t } = useLanguage()
+
   return (
     <div className="home">
       {/* Hero Section */}
@@ -10,16 +13,15 @@ const Home = () => {
           <div className="hero-content">
             <div className="hero-badge glass">
               <span className="badge-dot"></span>
-              Versión 0.1.0 Disponible
+              {t.home.version}
             </div>
             <h1 className="hero-title">
-              <span className="gradient-text">Effect Screen</span>
+              <span className="gradient-text">{t.home.heroTitle1}</span>
               <br />
-              Recorder Master
+              {t.home.heroTitle2}
             </h1>
             <p className="hero-description">
-              Grabación de pantalla profesional con efectos visuales en tiempo real. 
-              Ajusta brillo, contraste, saturación y más mientras grabas.
+              {t.home.heroDescription}
             </p>
             <div className="hero-buttons">
               <a 
@@ -31,10 +33,10 @@ const Home = () => {
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                   <path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-6 4h12v-2H6v2z"/>
                 </svg>
-                Descargar Ahora
+                {t.home.downloadNow}
               </a>
               <Link to="/docs" className="btn btn-secondary">
-                Ver Documentación
+                {t.home.viewDocs}
               </Link>
             </div>
           </div>
@@ -52,27 +54,27 @@ const Home = () => {
       {/* Features Section */}
       <section className="features section">
         <div className="container">
-          <h2 className="section-title">Características Principales</h2>
+          <h2 className="section-title">{t.home.mainFeatures}</h2>
           <div className="features-grid">
             <div className="feature-card glass">
               <div className="feature-icon">🎚️</div>
-              <h3>Ajustes en Tiempo Real</h3>
-              <p>Brillo, contraste, saturación, gamma, tono y nitidez. 6 controles deslizantes con precisión decimal.</p>
+              <h3>{t.home.feature1Title}</h3>
+              <p>{t.home.feature1Desc}</p>
             </div>
             <div className="feature-card glass">
               <div className="feature-icon">🖥️</div>
-              <h3>Vista Previa Avanzada</h3>
-              <p>Panel interactivo 1:1 con efectos aplicados en tiempo real y soporte para imágenes/GIF.</p>
+              <h3>{t.home.feature2Title}</h3>
+              <p>{t.home.feature2Desc}</p>
             </div>
             <div className="feature-card glass">
               <div className="feature-icon">⚙️</div>
-              <h3>Configuración Profesional</h3>
-              <p>Detección automática de dispositivos de audio, presets FFmpeg y guardado automático en JSON.</p>
+              <h3>{t.home.feature3Title}</h3>
+              <p>{t.home.feature3Desc}</p>
             </div>
             <div className="feature-card glass">
               <div className="feature-icon">🎨</div>
-              <h3>Interfaz Moderna</h3>
-              <p>Diseño oscuro elegante construido con CustomTKinter para una experiencia visual premium.</p>
+              <h3>{t.home.feature4Title}</h3>
+              <p>{t.home.feature4Desc}</p>
             </div>
           </div>
         </div>
@@ -83,16 +85,16 @@ const Home = () => {
         <div className="container">
           <div className="install-card glass-strong">
             <div className="install-content">
-              <h2>Instalación Rápida</h2>
-              <p>Instala ESRM en segundos con pip</p>
+              <h2>{t.home.quickInstall}</h2>
+              <p>{t.home.installWith}</p>
               <pre className="install-code">
                 <code>pip install effect-srm</code>
               </pre>
               <p className="install-note">
-                Requiere Python 3.11.6+ y FFmpeg en PATH
+                {t.home.requires}
               </p>
               <Link to="/install" className="btn btn-primary">
-                Ver Más Opciones
+                {t.home.moreOptions}
               </Link>
             </div>
           </div>
@@ -107,7 +109,7 @@ const Home = () => {
               <a href="https://pepy.tech/projects/effect-srm" target="_blank" rel="noopener noreferrer">
                 <img src="https://static.pepy.tech/badge/effect-srm" alt="PyPI Downloads" />
               </a>
-              <span>Descargas PyPI</span>
+              <span>{t.home.pypiDownloads}</span>
             </div>
             <div className="stat-card glass">
               <img src="https://img.shields.io/badge/Python-3.11.6%2B-blue.svg" alt="Python Version" />
@@ -115,11 +117,11 @@ const Home = () => {
             </div>
             <div className="stat-card glass">
               <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License MIT" />
-              <span>Licencia MIT</span>
+              <span>{t.home.mitLicense}</span>
             </div>
             <div className="stat-card glass">
               <img src="https://img.shields.io/pypi/v/effect-srm?label=ESRM" alt="Version" />
-              <span>Última Versión</span>
+              <span>{t.home.latestVersion}</span>
             </div>
           </div>
         </div>

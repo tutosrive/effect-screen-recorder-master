@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import { useLanguage } from '../i18n/useLanguage'
 import './Download.css'
 
 const Download = () => {
   const [copied, setCopied] = useState(false)
+  const { t } = useLanguage()
 
   const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text)
@@ -22,10 +24,10 @@ const Download = () => {
         {/* Header */}
         <section className="download-header">
           <h1 className="page-title">
-            <span className="gradient-text">Descargar ESRM</span>
+            <span className="gradient-text">{t.download.title}</span>
           </h1>
           <p className="page-subtitle">
-            Obtén la última versión de Effect Screen Recorder Master
+            {t.download.subtitle}
           </p>
         </section>
 
@@ -37,12 +39,12 @@ const Download = () => {
                 <img src="https://img.shields.io/pypi/v/effect-srm?label=ESRM&style=for-the-badge" alt="Version" />
               </div>
               <h2>ESRM v0.1.0</h2>
-              <p>Grabación de pantalla profesional con efectos en tiempo real</p>
+              <p>{t.download.professionalRecording}</p>
               <ul className="download-features">
-                <li>✓ Ajustes de video en tiempo real</li>
-                <li>✓ Vista previa avanzada</li>
-                <li>✓ Múltiples presets de codificación</li>
-                <li>✓ Interfaz moderna oscura</li>
+                <li>✓ {t.download.realTimeAdjustments}</li>
+                <li>✓ {t.download.advancedPreview}</li>
+                <li>✓ {t.download.multiplePresets}</li>
+                <li>✓ {t.download.modernDarkUI}</li>
               </ul>
             </div>
             <div className="download-actions">
@@ -59,14 +61,14 @@ const Download = () => {
                   height="48"
                 />
               </a>
-              <p className="download-note">Descargar desde SourceForge</p>
+              <p className="download-note">{t.download.downloadFrom}</p>
             </div>
           </div>
         </section>
 
         {/* Download Options */}
         <section className="download-options section">
-          <h2 className="section-title">Opciones de Descarga</h2>
+          <h2 className="section-title">{t.download.downloadOptions}</h2>
           <div className="options-grid">
             {/* SourceForge */}
             <div className="option-card glass">
@@ -76,14 +78,14 @@ const Download = () => {
                 </svg>
               </div>
               <h3>SourceForge</h3>
-              <p>Instalador .exe para Windows. No requiere Python.</p>
+              <p>{t.download.sourceforgeDesc}</p>
               <a 
                 href="https://sourceforge.net/projects/e-srm/files/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-download"
               >
-                Ir a SourceForge
+                {t.download.goToSourceforge}
               </a>
             </div>
 
@@ -96,13 +98,13 @@ const Download = () => {
                 </svg>
               </div>
               <h3>PyPI</h3>
-              <p>Instala con pip. Requiere Python 3.11.6+</p>
+              <p>{t.download.pypiDesc}</p>
               <div className="code-block-wrapper">
                 <pre className="option-code"><code>pip install effect-srm</code></pre>
                 <button 
                   className={`copy-btn ${copied ? 'copied' : ''}`}
                   onClick={() => copyToClipboard('pip install effect-srm')}
-                  aria-label="Copiar comando"
+                  aria-label={t.install.copyCommand}
                 >
                   {copied ? '✓' : '📋'}
                 </button>
@@ -113,7 +115,7 @@ const Download = () => {
                 rel="noopener noreferrer"
                 className="btn btn-primary"
               >
-                Ver en PyPI
+                {t.download.viewOnPyPI}
               </a>
             </div>
           </div>
@@ -124,15 +126,15 @@ const Download = () => {
           <div className="stats-row">
             <a href="https://pepy.tech/projects/effect-srm" target="_blank" rel="noopener noreferrer" className="stat-item glass">
               <img src="https://static.pepy.tech/badge/effect-srm" alt="Total Downloads" />
-              <span>Descargas Totales</span>
+              <span>{t.download.totalDownloads}</span>
             </a>
             <div className="stat-item glass">
               <img src="https://img.shields.io/badge/FFmpeg-Required-orange.svg" alt="FFmpeg Required" />
-              <span>Requiere FFmpeg</span>
+              <span>{t.download.requiresFFmpeg}</span>
             </div>
             <div className="stat-item glass">
               <img src="https://img.shields.io/badge/Windows-10-blue.svg" alt="Windows 10" />
-              <span>Sistema Probado</span>
+              <span>{t.download.testedSystem}</span>
             </div>
           </div>
         </section>
@@ -140,10 +142,10 @@ const Download = () => {
         {/* CTA */}
         <section className="download-cta section">
           <div className="cta-card glass-strong">
-            <h3>¿Primera vez usando ESRM?</h3>
-            <p>Consulta nuestra guía de instalación para comenzar.</p>
+            <h3>{t.download.firstTime}</h3>
+            <p>{t.download.firstTimeDesc}</p>
             <Link to="/install" className="btn btn-primary">
-              Ver Guía de Instalación
+              {t.download.viewInstallGuide}
             </Link>
           </div>
         </section>

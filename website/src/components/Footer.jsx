@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
+import { useLanguage } from '../i18n/useLanguage'
 import './Footer.css'
 
 const Footer = () => {
+  const { t } = useLanguage()
+
   return (
     <footer className="footer glass">
       <div className="footer-container">
@@ -20,21 +23,21 @@ const Footer = () => {
           
           <div className="footer-links">
             <div className="footer-section">
-              <h4>Navegación</h4>
-              <Link to="/">Inicio</Link>
-              <Link to="/about">Acerca</Link>
-              <Link to="/docs">Documentación</Link>
+              <h4>{t.footer.navigation}</h4>
+              <Link to="/">{t.footer.home}</Link>
+              <Link to="/about">{t.footer.about}</Link>
+              <Link to="/docs">{t.footer.documentation}</Link>
             </div>
             
             <div className="footer-section">
-              <h4>Recursos</h4>
-              <Link to="/install">Instalación</Link>
-              <Link to="/download">Descargar</Link>
-              <Link to="/license">Licencia</Link>
+              <h4>{t.footer.resources}</h4>
+              <Link to="/install">{t.footer.install}</Link>
+              <Link to="/download">{t.footer.download}</Link>
+              <Link to="/license">{t.footer.license}</Link>
             </div>
             
             <div className="footer-section">
-              <h4>Enlaces</h4>
+              <h4>{t.footer.links}</h4>
               <a href="https://github.com/tutosrive/E-SRM" target="_blank" rel="noopener noreferrer">GitHub</a>
               <a href="https://pypi.org/project/effect-srm/" target="_blank" rel="noopener noreferrer">PyPI</a>
               <a href="https://sourceforge.net/projects/e-srm/" target="_blank" rel="noopener noreferrer">SourceForge</a>
@@ -43,7 +46,7 @@ const Footer = () => {
         </div>
         
         <div className="footer-bottom">
-          <p>© 2025 Dev2Forge - ESRM - Proyecto de código abierto bajo licencia MIT</p>
+          <p>{t.footer.copyright}</p>
           <div className="footer-social">
             <a href="https://github.com/dev2forge" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
