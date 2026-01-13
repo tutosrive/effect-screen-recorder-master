@@ -1,0 +1,274 @@
+.install {
+  padding-bottom: 40px;
+}
+
+.install-header {
+  padding-top: 40px;
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.page-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* Install Methods */
+.install-methods {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.method-card {
+  padding: 32px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.method-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.method-badge.pypi {
+  background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
+}
+
+.method-badge.exe {
+  background: linear-gradient(135deg, var(--accent-orange), var(--accent-pink));
+}
+
+.method-badge.dev {
+  background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue));
+}
+
+.method-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.method-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+.method-card > p {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.install-step {
+  margin-bottom: 20px;
+}
+
+.install-step h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--primary-cyan);
+}
+
+.install-step p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.install-step pre {
+  margin: 8px 0;
+}
+
+/* Code Block with Copy Button */
+.code-block-wrapper {
+  position: relative;
+  margin: 8px 0;
+}
+
+.code-block-wrapper pre {
+  margin: 0;
+  padding-right: 50px;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  color: var(--text-primary);
+}
+
+.copy-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.copy-btn.copied {
+  background: rgba(34, 197, 94, 0.2);
+  border-color: rgba(34, 197, 94, 0.4);
+  color: #22c55e;
+}
+
+.step-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.method-card .btn {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.method-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+/* FFmpeg Section */
+.ffmpeg-card {
+  display: flex;
+  gap: 32px;
+  padding: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.ffmpeg-icon {
+  font-size: 4rem;
+  flex-shrink: 0;
+}
+
+.ffmpeg-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+
+.ffmpeg-content > p {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.ffmpeg-steps {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.ffmpeg-step {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.ffmpeg-step span {
+  width: 28px;
+  height: 28px;
+  background: var(--primary-purple);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.ffmpeg-step p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Video Tutorial */
+.video-container {
+  aspect-ratio: 16/9;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 12px;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  border-radius: 12px;
+}
+
+/* Help Section */
+.help-card {
+  text-align: center;
+  padding: 40px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.help-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+.help-card > p {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.help-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .install-methods {
+    grid-template-columns: 1fr;
+  }
+
+  .ffmpeg-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ffmpeg-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-title {
+    font-size: 2.25rem;
+  }
+
+  .method-card {
+    padding: 24px;
+  }
+
+  .help-buttons {
+    flex-direction: column;
+  }
+
+  .help-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

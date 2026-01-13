@@ -1,0 +1,268 @@
+.docs {
+  padding-bottom: 40px;
+}
+
+.docs-header {
+  padding-top: 40px;
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.page-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* Docs Card */
+.docs-card {
+  padding: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.docs-card h2 {
+  font-size: 1.75rem;
+  margin-bottom: 16px;
+}
+
+.docs-card > p {
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+}
+
+/* Steps */
+.step {
+  display: flex;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.step:last-child {
+  border-bottom: none;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.step-content h4 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.step-content p {
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.step-content pre {
+  margin: 12px 0;
+}
+
+/* Usage Grid */
+.usage-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.usage-card {
+  padding: 24px;
+  text-align: center;
+  position: relative;
+}
+
+.usage-number {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--primary-purple), var(--primary-cyan));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+  margin: 0 auto 16px;
+}
+
+.usage-card h4 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.usage-card p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* Config */
+.config-card {
+  padding: 40px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.config-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+
+.config-card > p {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.config-code {
+  font-size: 0.9rem;
+}
+
+/* Effects Table */
+.effects-table {
+  padding: 24px;
+  overflow-x: auto;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.effects-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.effects-table th,
+.effects-table td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.effects-table th {
+  font-weight: 600;
+  color: var(--primary-cyan);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.effects-table td {
+  color: var(--text-secondary);
+}
+
+.effects-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Presets Grid */
+.presets-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.preset-card {
+  padding: 24px;
+  text-align: center;
+}
+
+.preset-card h4 {
+  font-size: 1rem;
+  margin-bottom: 12px;
+  color: var(--primary-cyan);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.preset-card p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* Requirements Grid */
+.requirements-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.requirement-card {
+  padding: 32px;
+  text-align: center;
+}
+
+.req-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.requirement-card h4 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.requirement-card p {
+  color: var(--text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .usage-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .presets-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .usage-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .presets-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .requirements-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-title {
+    font-size: 2.25rem;
+  }
+
+  .usage-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .presets-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .docs-card {
+    padding: 24px;
+  }
+
+  .config-card {
+    padding: 24px;
+  }
+}
